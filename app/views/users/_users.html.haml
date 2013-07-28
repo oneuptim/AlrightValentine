@@ -1,0 +1,28 @@
+%h1{:class => "table_heading"} Listing users
+
+%table{:class => "tables"}
+  %tr
+    %th Username
+    %th Gender
+    %th Age
+    %th Gender Preferences
+    %th Location
+    %th Hobbies
+    %th About
+    %th
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= user.username
+      %td= user.gender
+      %td= user.age
+      %td= user.genderpreferences
+      %td= user.location
+      %td= user.hobbies
+      %td= user.about
+
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }

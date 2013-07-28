@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8" />
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  	<title><%= content_for?(:title) ? yield(:title) : "AlrightValentine" %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <nav class="top-bar">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "AlrightValentine", root_path %></a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="divider"></li>
+          <% if current_user %>
+            <li><a href="#">Logged in as <%= current_user.email %></a></li>
+            <li class="divider"></li>
+
+            <li><%= link_to "Your Profile", user_path(current_user.id) %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Logout", logout_path  %></li>
+          <% else %>
+            <!-- added a data attribute to give the signup modal capabilities -->
+            <li><%= link_to "Signup", signup_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Login", login_path  %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <%= yield %>
+
+
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

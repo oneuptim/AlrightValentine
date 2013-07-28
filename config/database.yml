@@ -1,0 +1,9 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: dating_app_development
+  pool: 5
+  username: tomgalpin
+  host: localhost
+  password:
