@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
 
-  attr_accessible :username, :email, :password, :password_confirmation, :gender, :age, :genderpreferences, :location, :hobbies, :about, :image
+  attr_accessible :username, :email, :password, :password_confirmation, :gender, :age, :genderpreferences, :location, :hobbies, :about, :image, :stripe_id
 
   has_many :photos
 
@@ -22,4 +22,16 @@ class User < ActiveRecord::Base
   validates_presence_of :about
 
   mount_uploader :image, ImageUploader
+
+  def customer_emails
+    customer_emails = []
+    Stripe::Customer.all.data.each do |customer|
+      customer_emails << customer.email
+    end
+    customer_emails
+  end
+
+  def is_paid?
+    customer_emails.include?(self.email)
+  end
 end

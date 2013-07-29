@@ -4,6 +4,7 @@ DatingApp::Application.routes.draw do
   match 'login' => 'sessions#new', :as => 'login'
   match 'signup' => 'users#new', :as => 'signup'
 
+  resources :charges
   resources :users
   resources :sessions
   resources :photos

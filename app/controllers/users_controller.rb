@@ -16,6 +16,13 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
+      if params[:stripeToken] != nil
+        customer = Stripe::Customer.create(
+          :email => @user.email,
+          :card => params[:stripeToken],
+          :plan => "paid"
+          )
+      end
       redirect_to root_path, :notice => "Signed up!"
     else
       render :new

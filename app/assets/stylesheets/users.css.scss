@@ -27,5 +27,24 @@
   }
 }
 
+.pay_with_stripe {
+  width: 80%;
+  margin: 20px auto;
+
+  .pay {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: red;
+
+  }
+
+  button {
+    margin-left: 220px;
+  }
+}
+
+
 
 

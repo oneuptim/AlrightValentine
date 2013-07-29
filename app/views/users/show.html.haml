@@ -24,3 +24,13 @@
   %p
     %strong Gender Preferences:
     = @user.genderpreferences
+
+  .pay_with_stripe
+    - if @user != current_user
+    - elsif @user == current_user && @user.is_paid?
+      %p.pay "Thank you for signing up for our monthly subscription.  You now can message other profiles on AlrightValentine!"
+    - else
+      %p.pay Sign Up for a Paid Account for only $9.99/month and have unlimited access to message other profiles.
+      = form_tag charges_path do
+        %script{ "src" => 'https://checkout.stripe.com/v2/checkout.js', "class" => "stripe-button", "data-key" => "pk_test_YdBv53fHLnm3VP1TxecxLsFQ", "data-amount" => "999", "data-name" => "alrightvalentine", "data-description" => "Unlimited Messaging for $9.99/month!"}
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130728070325) do
+ActiveRecord::Schema.define(:version => 20130729053944) do
 
   create_table "messages", :force => true do |t|
     t.text     "content"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20130728070325) do
     t.string   "location"
     t.text     "about"
     t.string   "image"
+    t.string   "customer_id"
+    t.string   "last_4_digits"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
