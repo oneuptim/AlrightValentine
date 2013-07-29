@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
 
   end
 
@@ -23,11 +23,20 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
   end
 end
