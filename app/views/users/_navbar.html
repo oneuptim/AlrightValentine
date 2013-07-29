@@ -1,0 +1,28 @@
+<nav class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to "AlrightValentine", root_path %></a></h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="right">
+      <li class="divider"></li>
+      <% if current_user %>
+        <li><a href="#">Logged in as <%= current_user.email %></a></li>
+        <li class="divider"></li>
+
+        <li><%= link_to "Your Profile", user_path(current_user.id) %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Edit Profile", edit_user_path(current_user.id) %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Logout", logout_path  %></li>
+      <% else %>
+        <!-- added a data attribute to give the signup modal capabilities -->
+        <li><%= link_to "Signup", signup_path, :remote => true, :data => {"reveal-id" => "signup_window"} %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Login", login_path, :remote => true, :data => {'reveal-id' => "login_window "}  %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

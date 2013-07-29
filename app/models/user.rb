@@ -34,4 +34,9 @@ class User < ActiveRecord::Base
   def is_paid?
     customer_emails.include?(self.email)
   end
+
+  def good_match?
+    @users = User.all
+  end
+
 end

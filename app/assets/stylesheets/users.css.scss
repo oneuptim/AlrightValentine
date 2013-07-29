@@ -8,18 +8,18 @@
     text-align: center;
   }
 
-  p {
+  .show {
     margin-left: 50px;
   }
 }
 
 .show_profile_pic {
   margin: 30px auto;
-  height: 250px;
-  width: 50%;
+  // height: 250px;
+  width: 300px;
   border: 1px solid black;
   padding: 10px;
-  overflow: hidden;
+  // overflow: hidden;
 
   img {
     height: 100%;
@@ -42,6 +42,12 @@
 
   button {
     margin-left: 220px;
+  }
+
+  .payed {
+    text-align: center;
+    color: red;
+
   }
 }
 

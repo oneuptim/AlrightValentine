@@ -6,29 +6,29 @@
 
   .show_profile_pic
     = image_tag @user.image_url(:show).to_s
-  %p
+  %p.show
     %strong About:
     = @user.about
-  %p
+  %p.show
     %strong Hobbies:
     = @user.hobbies
-  %p
+  %p.show
     %strong Location:
     = @user.location
-  %p
+  %p.show
     %strong Age:
     = @user.age
-  %p
+  %p.show
     %strong Gender:
     = @user.gender
-  %p
+  %p.show
     %strong Gender Preferences:
     = @user.genderpreferences
 
   .pay_with_stripe
     - if @user != current_user
     - elsif @user == current_user && @user.is_paid?
-      %p.pay "Thank you for signing up for our monthly subscription.  You now can message other profiles on AlrightValentine!"
+      %p.payed "Thank you for signing up for our monthly subscription.  You now can message other profiles on AlrightValentine!"
     - else
       %p.pay Sign Up for a Paid Account for only $9.99/month and have unlimited access to message other profiles.
       = form_tag charges_path do

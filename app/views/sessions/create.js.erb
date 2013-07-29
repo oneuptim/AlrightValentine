@@ -1,0 +1,6 @@
+var navbar = $('.top-bar');
+
+$('#login_window').foundation('reveal', 'close');
+
+navbar.empty().append('<%= j render "users/navbar" %>');
+
