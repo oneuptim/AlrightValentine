@@ -1,5 +1,5 @@
 / adding, 'remote => true' will make this form submit AJAX rather than rails
-= form_for @user  do |f|
+= form_for @user, :html => {:multipart => true }  do |f|
   - if @user.errors.any?
     #error_explanation
       %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
@@ -37,5 +37,10 @@
   .field
     = f.label :about
     = f.text_area :about
+  .add_photo
+    %h7.h_seven Add a Profile Picture:
+    %br
+    %br
+    = f.file_field :image
   .actions
     = f.submit 'Save'

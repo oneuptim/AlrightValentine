@@ -19,6 +19,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'fog'
 gem 'carrierwave'
 gem 'haml-rails'
+gem 'rmagick', '2.13.2'
 
 
 # Gems used only for assets and not required

@@ -161,6 +161,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rmagick (2.13.2)
     ruby-hmac (0.4.0)
     sass (3.2.10)
     sass-rails (3.2.6)
@@ -210,6 +211,7 @@ DEPENDENCIES
   pry-debugger
   pry-rails
   rails (= 3.2.13)
+  rmagick (= 2.13.2)
   sass-rails (~> 3.2.3)
   sorcery
   stripe!

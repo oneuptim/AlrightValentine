@@ -2,6 +2,7 @@
 
 %table{:class => "tables"}
   %tr
+    %th Profile Pic
     %th Username
     %th Gender
     %th Age
@@ -9,12 +10,10 @@
     %th Location
     %th Hobbies
     %th About
-    %th
-    %th
-    %th
 
   - @users.each do |user|
     %tr
+      %td.thumb= image_tag user.image_url(:thumb).to_s
       %td= user.username
       %td= user.gender
       %td= user.age
@@ -22,7 +21,3 @@
       %td= user.location
       %td= user.hobbies
       %td= user.about
-
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
